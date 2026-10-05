@@ -47,7 +47,7 @@ Reference:      N/A
 
 ## Step 4: Prompt
 ```
-Consider the hydraulic circuit shown in ISO $1219$ symbols, in which components are numbered, each cylinder is marked with its bore and rod diameters in millimetres as $\varnothing$bore $/$ $\varnothing$rod, and the pump delivery, the flow-control setting and the flow-divider outlet shares are marked beside their symbols. Solenoid $\text{Y1}$ of valve $3$ is energised and solenoid $\text{Y2}$ is de-energised, and all three cylinders are moving and none has reached the end of its stroke. Treat pump $1$ as delivering exactly its marked flow, relief valve $2$ as closed, flow-control valve $8$ as pressure compensated so that it passes exactly its marked flow, and flow divider $7$ as splitting its inlet flow exactly in the marked shares. Check valves have zero cracking pressure, free flow through a check-valve symbol is from the apex of its seat towards its ball, and a pilot-operated check valve opens in its blocked direction only when its dashed pilot line is pressurised. Ignore leakage, fluid compressibility and line losses, and take any line open to the tank as being at zero gauge pressure. Lines are connected only at dots, and a semicircular hop is a crossing without connection. Determine the speed of the piston of cylinder $5$.
+Consider the hydraulic circuit shown in ISO $1219$ symbols, in which components are numbered, each cylinder is marked with its bore and rod diameters in millimetres as $\varnothing$bore $/$ $\varnothing$rod, and the pump delivery, the flow-control setting and the flow-divider outlet shares are marked beside their symbols. Solenoid $\text{Y1}$ of valve $3$ is energised and solenoid $\text{Y2}$ is de-energised, and all three cylinders are moving and none has reached the end of its stroke. Treat pump $1$ as delivering exactly its marked flow, relief valve $2$ as closed, flow-control valve $8$ as pressure compensated so that it passes exactly its marked flow, and flow divider $7$ as splitting its inlet flow exactly in the marked shares. Check valves have zero cracking pressure, free flow through a check-valve symbol is from the apex of its seat towards its ball, and a pilot-operated check valve opens in its blocked direction only when its dashed pilot line is pressurised. Ignore leakage, fluid compressibility and line losses, and take any line open to the tank as being at zero gauge pressure. Lines are connected only at dots, and a semicircular hop is a crossing without connection. Determine the speed of the piston of cylinder $5$ in $\text{mm/s}$, reported to $3$ significant figures.
 
 The answer should be expressed in $\text{mm/s}$. Report your final answer as a $3$ significant figure number without units. Any intermediate calculations should be carried out to $6$ significant figures. All unstated fundamental constants should be used to $4$ significant figures.
 ```
@@ -141,7 +141,7 @@ The response fails by misreading which envelope of valve 3 is active (topologica
 ```
 The Science Judge finding is incorrect and requires no change to the task.
 
-The finding states that the prompt contains no task or requested quantity [or quotes the author attestation, which is not part of the prompt]. The saved prompt defines the system: "Consider the hydraulic circuit shown in ISO 1219 symbols, ...". It states the conditions verbatim: "Solenoid Y1 of valve 3 is energised and solenoid Y2 is de-energised, and all three cylinders are moving and none has reached the end of its stroke." It names exactly one requested quantity: "Determine the speed of the piston of cylinder 5.", in mm/s to 3 significant figures.
+The finding states that the prompt contains no task or requested quantity [or quotes the author attestation, which is not part of the prompt]. The saved prompt defines the system: "Consider the hydraulic circuit shown in ISO 1219 symbols, ...". It states the conditions verbatim: "Solenoid Y1 of valve 3 is energised and solenoid Y2 is de-energised, and all three cylinders are moving and none has reached the end of its stroke." It names exactly one requested quantity: "Determine the speed of the piston of cylinder 5 in mm/s, reported to 3 significant figures."
 
 With these conditions the answer is uniquely determined (114), as shown in the step-by-step solution. The image description's final paragraph restates the conditions and requested quantity, and Step 1 of the solution attributes them to the prompt.
 
@@ -160,3 +160,14 @@ The description has been made explicit on this point; the topology, values and G
 ## Model responses log
 | Response | Final answer | Stated reading | Reproduced? | Usable for Step 8? |
 |---|---|---|---|---|
+
+## QC Justification: Science Judge SPECIFICITY_MISSING (units / precision)
+```
+The Science Judge finding is incorrect and requires no change to the task.
+
+The finding states that neither final-answer units nor significant-figure precision is specified, and it quotes nothing from the prompt ("Quote: N/A"). The saved prompt states both, twice. The question sentence reads: "Determine the speed of the piston of cylinder 5 in mm/s, reported to 3 significant figures." The prompt then closes with the required boilerplate: "The answer should be expressed in mm/s. Report your final answer as a 3 significant figure number without units. Any intermediate calculations should be carried out to 6 significant figures. All unstated fundamental constants should be used to 4 significant figures."
+
+The units (mm/s), the final precision (3 significant figures) and the intermediate precision (6 significant figures) are therefore all specified. The image description's final paragraph restates them, and the GTFA (114) is given to 3 significant figures.
+
+The finding is an artefact of the prompt text not being fully evaluated, not an omission in the task.
+```

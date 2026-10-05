@@ -40,7 +40,7 @@ Reference:      N/A
 
 ## Step 4 — Prompt
 ```
-Consider the <system> shown as <diagram type>, in which <what markings and symbols mean>. <Operating state>. <Idealisations>. <Rule closing the key ambiguity>. Determine <one quantity of one named element>. <Sign convention; tie-break rule>.
+Consider the <system> shown as <diagram type>, in which <what markings and symbols mean>. <Operating state>. <Idealisations>. <Rule closing the key ambiguity>. Determine <one quantity of one named element> in $\text{<UNITS>}$, reported to $3$ significant figures. <Sign convention; tie-break rule>.
 
 The answer should be expressed in $\text{<UNITS>}$. Report your final answer as a $3$ significant figure number without units. Any intermediate calculations should be carried out to $6$ significant figures. All unstated fundamental constants should be used to $4$ significant figures.
 ```

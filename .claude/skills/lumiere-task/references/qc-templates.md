@@ -51,6 +51,23 @@ The image description's final paragraph also restates these conditions and the r
 Both findings are artefacts of the prompt text not being evaluated, and not omissions in the task.
 ```
 
+## QC Justification — Science Judge SPECIFICITY_MISSING (units / precision)
+
+Seen on hydraulic v4: "neither final-answer units nor significant-figure precision is
+specified", with "Quote: N/A". Same root cause as above (the judge does not see the full
+prompt, usually the closing boilerplate paragraph). Reload and confirm the Step 4 field ends
+with the boilerplate; then:
+
+```
+The Science Judge finding is incorrect and requires no change to the task.
+
+The finding states that neither final-answer units nor significant-figure precision is specified, and it quotes nothing from the prompt ("Quote: N/A"). The saved prompt states both, twice. The question sentence reads: "<question sentence with units and sig figs>". The prompt then closes with the required boilerplate: "The answer should be expressed in <units>. Report your final answer as a <N> significant figure number without units. Any intermediate calculations should be carried out to 6 significant figures. All unstated fundamental constants should be used to 4 significant figures."
+
+The units (<units>), the final precision (<N> significant figures) and the intermediate precision (6 significant figures) are therefore all specified. The image description's final paragraph restates them, and the GTFA (<GTFA>) is given to <N> significant figures.
+
+The finding is an artefact of the prompt text not being fully evaluated, not an omission in the task.
+```
+
 ## QC Justification — Image Description Checker HALLUCINATED_DETAIL
 
 Check the drawing first. If the checker is wrong, change neither image nor answer; strengthen the

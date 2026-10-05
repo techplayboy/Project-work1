@@ -58,12 +58,16 @@ All Rights Reserved, BioRender, patent drawings. External template in `qc-templa
   non-italic with `\,`. Be consistent within a task. Tasks are sent back for LaTeX errors.
 - Grammar: "in case of a tie"; "perform Dijkstra's algorithm".
 - Exactly **one** requested quantity. No connection words.
+- **Put the units and significant figures in the question sentence too** ("Determine ... in
+  $\text{mm/s}$, reported to $3$ significant figures."), as well as in the boilerplate. The
+  Science Judge sometimes sees only the first paragraph and raises SPECIFICITY_MISSING
+  ("neither final-answer units nor significant-figure precision is specified").
 - The ambiguity-closing rule (e.g. "elements are connected only where joined by a dot") doesn't
   help the models, but defends against "ambiguous" findings — include it.
 
 Tight pattern:
 ```
-Consider the [system] shown as [diagram type], in which [what markings and symbols mean]. [Operating state: switch/valve/clutch states; inputs; loads; initial conditions]. [Idealisations]. [Rule closing the key ambiguity]. Determine [one quantity of one named element]. [Sign or direction convention; tie-break rule].
+Consider the [system] shown as [diagram type], in which [what markings and symbols mean]. [Operating state: switch/valve/clutch states; inputs; loads; initial conditions]. [Idealisations]. [Rule closing the key ambiguity]. Determine [one quantity of one named element] in $\text{[UNITS]}$, reported to $N$ significant figures. [Sign or direction convention; tie-break rule].
 
 The answer should be expressed in $\text{[UNITS]}$. Report your final answer as a $N$ significant figure number without units. Any intermediate calculations should be carried out to $6$ significant figures. All unstated fundamental constants should be used to $4$ significant figures.
 ```
