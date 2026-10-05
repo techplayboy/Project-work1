@@ -18,4 +18,7 @@ Evidence behind the lessons. Read before designing; **append a row after every t
 
 ## New results
 
+| 12 | Hydraulic v4 (bleed-off, series, divider, regen) | Fluid power | 114 | **Both solved** (114, 114) | Sequential chain, so each stage could be solved locally. The prompt spelled out the symbol conventions (check-valve direction, pilot logic, 'all cylinders moving'), and the models quoted them back. Dots, solenoid labels and outlet labels were read correctly; the hop swap trap did nothing because the model mapped the outlet label to its endpoint |
+| 13 | Pulley v1 (stepped drum, 4 ropes, 3 members) | Mechanisms / kinematics | −229 | pending | Built from lesson 12: 4×4 coupled system, minimal prompt conventions, long ropes crossing bars without dots, pulley near the ceiling strapped to a moving bar |
+
 <!-- Append: | n | task | subdomain | GTFA | result (answers) | lesson | -->
