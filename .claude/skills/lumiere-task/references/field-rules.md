@@ -120,6 +120,10 @@ short exact answer (word, list, path). Never a sentence.
 
 - Exactly 5, unique, none equal to the GTFA, each tied to a named misread. Plausible to a
   non-expert, dismissable by an expert.
+- **Same format as the GTFA.** A whole-number GTFA (241, −1260) with a decimal distractor (62.6)
+  raises FORMAT_MISMATCH (MAJOR ERROR). Design misreads with |value| ≥ 100 so that they are whole
+  at 3 s.f. Swap in a model's real wrong answer only if it already fits the format.
+  `check_package.py` raises an ERROR for this, and `misreads.py` flags it.
 - After testing, swap in the models' actual wrong answers.
 - Word-for-word note above the list:
 ```

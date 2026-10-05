@@ -91,10 +91,18 @@ def report(gtfa, rows, sig=3, signed=False, min_dist=0.25, max_ratio=20.0):
                     m.flags.append("ABSURD MAGNITUDE?")
                 if round_sig(v, sig) == g_r:
                     m.flags.append("ROUNDS TO GTFA")
+                if abs(g_r) >= 10 ** (sig - 1) and abs(round_sig(v, sig)) < 10 ** (sig - 1):
+                    m.flags.append(f"NOT WHOLE AT {sig} S.F. (GTFA is whole; FORMAT_MISMATCH as distractor)")
             dist_s = f"{dist*100:6.1f}%"
             key = round_sig(v, sig)
         if key in seen:
             m.flags.append(f"DUPLICATES #{seen[key]}")
+        if not (discrete or isinstance(m.value, str)) and math.isfinite(m.value):
+            for j, o in enumerate(rows[:i - 1], 1):
+                ov = o.value
+                if isinstance(ov, (int, float)) and math.isfinite(ov) and max(abs(ov), abs(m.value)) and \
+                        abs(ov - m.value) / max(abs(ov), abs(m.value)) < 0.10 and round_sig(ov, sig) != key:
+                    m.flags.append(f"<10% FROM #{j}")
         seen.setdefault(key, i)
         if not m.solvable:
             m.flags.append("NOT UNIQUELY SOLVABLE (model will notice)")

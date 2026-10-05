@@ -25,7 +25,7 @@ from misreads import Misread, fmt_sig, report  # noqa: E402
 from solver import solve  # noqa: E402
 
 SIG = 3
-U = 0.8                     # m/s, free end pulled down
+U = 1.2                     # m/s, free end pulled down
 R, r = 0.150, 0.060         # drum groove radii, m
 H = dict(A=6.0, B=4.6, C=2.4)
 

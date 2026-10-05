@@ -51,3 +51,5 @@ observations at the bottom with the task that showed them.
 | 2026-10 | hydraulic v4 | **Prompt rules are crutches.** Both models quoted our symbol-convention sentences verbatim and used them as a checklist. State only what defensibility needs (e.g. "fastened only at dots"), not how each symbol works |
 | 2026-10 | hydraulic v4 | **Label-to-endpoint matching beats hop traps.** A model described the 60 % outlet as the "upper line" (wrong) yet mapped it correctly, because the label sat at the outlet and the line ended at the nearest cylinder. A routing trap only works if the labelled end and the far end are not the nearest pair |
 | 2026-10 | hydraulic v4 | **Sequential chains get solved.** Five reads in a chain, each with local evidence, were all made correctly. Prefer simultaneous systems (rope-length sets, Willis cycles, nodal networks) |
+| 2026-10 | playbook | **They take prompt wording at face value** (a model assumed "pilot above tank" without tracing where the pilot starts) |
+| 2026-10 | playbook | **They compare dimensions against pixel scale**, so draw to scale |

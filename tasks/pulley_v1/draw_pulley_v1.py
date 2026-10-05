@@ -4,7 +4,7 @@ Pulley v1 — front elevation of a hoist with a stepped drum and four ropes.
 Topology encoded in the drawing (NOT stated in the prompt). Fastenings are filled dots;
 a rope crossing a bar without a dot is not fastened to it. Straps (thick lines) carry
 pulley axles to their member.
-  Rope 1: free end (x=0.65, pulled down 0.8 m/s) -> over F1 (ceiling) -> round PA (strap to
+  Rope 1: free end (x=0.65, pulled down 1.2 m/s) -> over F1 (ceiling) -> round PA (strap to
           bar A) -> up to the OUTER groove of drum D, leaving the drum's LEFT side.
   Rope 2: INNER groove of D, leaving its RIGHT side -> down (crossing bar A) round PB (strap up
           to bar B) -> up (crossing bar B) to a dot on the UNDERSIDE of bar A.
@@ -13,7 +13,7 @@ pulley axles to their member.
           top of bar A.
   Rope 4: dot on top of C -> up over F2 (ceiling) -> down round PB2 (strap up to bar B) -> up
           (crossing B) to a ceiling dot.
-  Drum radii: outer 150 mm, inner 60 mm.  GTFA vC = -229 mm/s. See verify.py.
+  Drum radii: outer 150 mm, inner 60 mm.  GTFA vC = -343 mm/s. See verify.py.
 """
 import sys
 from pathlib import Path
@@ -107,7 +107,7 @@ rope([(xE, 2.7), (xE, F1[1])])
 rope([(F1[0] + F1[2], F1[1]), (F1[0] + F1[2], PA[1])])
 rope([(PA[0] + PA[2], PA[1]), (PA[0] + PA[2], DY)])           # to outer groove, left side
 arrow(ax, xE, 3.3, 0, -0.9, lw=2.0, scale=20)
-txt(ax, xE + 0.2, 2.3, "$0.8\\,\\mathrm{m/s}$", ha="left", fs=13)
+txt(ax, xE + 0.2, 2.3, "$1.2\\,\\mathrm{m/s}$", ha="left", fs=13)
 
 # ---------------- rope 2 ----------------
 rope([(DX + RI, DY - 0.9), (DX + RI, PB[1])])                 # inner groove, right side

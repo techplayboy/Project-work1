@@ -1,6 +1,6 @@
 # Pulley v1 (stepped drum, three members, four ropes): task package
 
-Subdomain: Mechanical Engineering: kinematics / mechanisms · Image: `pulley_v1.png` · GTFA: -229 · Status: draft
+Subdomain: Mechanical Engineering: kinematics / mechanisms · Image: `pulley_v1.png` · GTFA: -343 · Status: draft
 
 ---
 
@@ -10,26 +10,26 @@ Subdomain: Mechanical Engineering: kinematics / mechanisms · Image: `pulley_v1.
 - **Hydraulic v4 could be solved one stage at a time, and the prompt explained the symbols.** Here the speed of C needs all four rope equations at once (a 4×4 system with the drum rate), and the prompt gives no symbol hints beyond "thin = rope, thick = strap, fastened only at dots".
 - **The models matched labels to the nearest endpoint instead of tracing lines.** Here no label sits next to a topology decision. The bars are long and crossed by five rope runs that are not fastened to them. The decisive fastenings are at the far ends of long runs (PF's strap, rope 2's end under A).
 - **The models fill gaps with textbook defaults.** Every read below contradicts one: a pulley next to the ceiling is fixed; a rope end near a bar is fastened to it; a pulley belongs to the nearest member; both drum ropes wind the same way.
-- **Counter-intuitive answer:** pulling the free end DOWN moves block C DOWN (−229 mm/s), while bar B rises.
+- **Counter-intuitive answer:** pulling the free end DOWN moves block C DOWN (−343 mm/s), while bar B rises.
 
-### Correct equations (y up, ω = drum rate, v_E = −0.8 m/s)
+### Correct equations (y up, ω = drum rate, v_E = −1.2 m/s)
 - Rope 1: −v_E − 2v_A + Rω = 0
 - Rope 2: −rω − 2v_B + v_A = 0
 - Rope 3: −2v_C + v_A = 0
 - Rope 4: −v_C − 2v_B = 0
 
-Solution: v_C = −U/(3R/r − 4) = −0.8/3.5 = −0.228571 m/s.
+Solution: v_C = −U/(3R/r − 4) = −1.2/3.5 = −0.342857 m/s.
 
 ### Trap table
 | # | Read | Correct reading (what is drawn) | Textbook default / misread | Misread answer (mm/s) | Distance |
 |---|---|---|---|---|---|
-| 1 | High pulley PF | Long thick strap runs DOWN to bar A (moving pulley) | Pulley near the ceiling is fixed | −533 | 133 % |
-| 2 | Drum winding sense | Rope 1 leaves the outer groove on the LEFT, rope 2 the inner groove on the RIGHT, so they wind in opposite senses | Same sense (differential hoist default) | +69.6 | 130 % |
-| 3 | Drum groove assignment | Rope 1 on the 150 mm groove, rope 2 on the 60 mm groove | Swapped | +286 | 225 % |
-| 4 | Pulley PC carrier | Strap goes DOWN to C | Hung from bar B, which it sits under | −400 | 75 % |
-| 5 | Pulley PB carrier | Strap UP to bar B; rope 2's other run continues up to A | PB read as carried by A | +88.9 | 139 % |
-| 6 | Rope 2 end | Dot on the UNDERSIDE of bar A | Runs on to the ceiling | +533 | 333 % |
-| 7 | Pulley PA carrier | Strap DOWN to bar A | Read as fixed | −107 | 53 % |
+| 1 | High pulley PF | Long thick strap runs DOWN to bar A (moving pulley) | Pulley near the ceiling is fixed | −800 | 133 % |
+| 2 | Drum winding sense | Rope 1 leaves the outer groove on the LEFT, rope 2 the inner groove on the RIGHT, so they wind in opposite senses | Same sense (differential hoist default) | +104 | 130 % |
+| 3 | Drum groove assignment | Rope 1 on the 150 mm groove, rope 2 on the 60 mm groove | Swapped | +429 | 225 % |
+| 4 | Pulley PC carrier | Strap goes DOWN to C | Hung from bar B, which it sits under | −600 | 75 % |
+| 5 | Pulley PB carrier | Strap UP to bar B; rope 2's other run continues up to A | PB read as carried by A | +133 | 139 % |
+| 6 | Rope 2 end | Dot on the UNDERSIDE of bar A | Runs on to the ceiling | +800 | 333 % |
+| 7 | Pulley PA carrier | Strap DOWN to bar A | Read as fixed | −160 | 53 % |
 
 Every misread still gives a unique solution. All values are reproduced by `verify.py` (`python3 tasks/pulley_v1/verify.py`).
 
@@ -56,12 +56,12 @@ The answer should be expressed in $\text{mm/s}$. Report your final answer as a $
 
 ## Step 6: GTFA
 ```
--229
+-343
 ```
 
 ## Step 7: Image description
 ```
-The figure is a front elevation of a hoisting arrangement. A hatched ceiling band runs across the top. Below it are two long horizontal rigid bars, A (upper) and B (lower), and a rigid block C at the bottom right. Thin lines are ropes, and thick lines are straps that carry pulley axles; every fastening is a filled dot. All numerical data are in the figure: the free rope end at the far left carries a downward arrow marked 0.8 m/s, and the stepped drum has two concentric grooves whose radii are marked 60 mm (inner circle) and 150 mm (outer circle).
+The figure is a front elevation of a hoisting arrangement. A hatched ceiling band runs across the top. Below it are two long horizontal rigid bars, A (upper) and B (lower), and a rigid block C at the bottom right. Thin lines are ropes, and thick lines are straps that carry pulley axles; every fastening is a filled dot. All numerical data are in the figure: the free rope end at the far left carries a downward arrow marked 1.2 m/s, and the stepped drum has two concentric grooves whose radii are marked 60 mm (inner circle) and 150 mm (outer circle).
 
 Fixed elements: three members hang from the ceiling on short thick straps, each ending at a dot on the ceiling. From left to right they are pulley F1, the stepped drum, and pulley F2 near the right.
 
@@ -78,7 +78,7 @@ The task prompt, not the image, specifies the conditions: bars A and B and block
 
 ## Step 9: Step-by-step solution
 ```
-Step 1: Data and conditions. The prompt states that A, B and C translate vertically, the drum turns freely on a fixed axle, ropes are inextensible and taut and do not slip on the drum, fastenings exist only at dots, and upward is positive. The figure gives the free-end speed of 0.8 m/s downward (v_E = −0.8 m/s) and drum groove radii R = 150 mm and r = 60 mm.
+Step 1: Data and conditions. The prompt states that A, B and C translate vertically, the drum turns freely on a fixed axle, ropes are inextensible and taut and do not slip on the drum, fastenings exist only at dots, and upward is positive. The figure gives the free-end speed of 1.2 m/s downward (v_E = −1.2 m/s) and drum groove radii R = 150 mm and r = 60 mm.
 
 Step 2: Observation of the carriers. F1, F2 and the drum hang from the ceiling (fixed). PA and PF are carried by bar A (PF's long strap runs down to A). PB and PB2 are carried by bar B. PC is carried by block C.
 
@@ -90,52 +90,52 @@ Rope 2: −rω − 2v_B + v_A = 0
 Rope 3: −2v_C + v_A = 0, so v_A = 2v_C
 Rope 4: −v_C − 2v_B = 0, so v_B = −v_C/2
 
-Step 5: Solve. From rope 2, rω = v_A − 2v_B = 2v_C + v_C = 3v_C, so ω = 3v_C/r. Substituting into rope 1: 0.8 − 4v_C + (R/r)(3v_C) = 0, i.e. 0.8 − 4v_C + 7.5v_C = 0 with R/r = 2.5. Therefore v_C = −0.8/3.5 = −0.228571 m/s.
-Then v_A = −0.457143 m/s, v_B = +0.114286 m/s and ω = −11.4286 rad/s.
-Cross-check, rope 1: 0.8 − 2(−0.457143) + 0.150(−11.4286) = 0.8 + 0.914286 − 1.71429 = 0.
-Block C moves downward at 228.571 mm/s.
+Step 5: Solve. From rope 2, rω = v_A − 2v_B = 2v_C + v_C = 3v_C, so ω = 3v_C/r. Substituting into rope 1: 1.2 − 4v_C + (R/r)(3v_C) = 0, i.e. 1.2 − 4v_C + 7.5v_C = 0 with R/r = 2.5. Therefore v_C = −1.2/3.5 = −0.342857 m/s.
+Then v_A = −0.685714 m/s, v_B = +0.171429 m/s and ω = −17.1429 rad/s.
+Cross-check, rope 1: 1.2 − 2(−0.685714) + 0.150(−17.1429) = 1.2 + 1.37143 − 2.57143 = 0.
+Block C moves downward at 342.857 mm/s.
 
-Final Answer: -229
+Final Answer: -343
 ```
 
 ## Step 10: Distractors
 ```
 Distractors (incorrect answers only). Note that in testing we provided the model all potential answers, including the GTFA.
 
-1. -533
-2. 286
-3. 69.6
-4. -400
-5. 88.9
+1. -800
+2. 429
+3. 104
+4. -600
+5. 133
 ```
 
 | Distractor | Misread |
 |---|---|
-| −533 | High pulley PF read as fixed to the ceiling |
-| 286 | Drum grooves swapped (rope 1 on 60 mm, rope 2 on 150 mm) |
-| 69.6 | Both drum ropes read as winding in the same sense |
-| −400 | Pulley PC read as hanging from bar B |
-| 88.9 | Pulley PB read as carried by bar A |
+| −800 | High pulley PF read as fixed to the ceiling |
+| 429 | Drum grooves swapped (rope 1 on 60 mm, rope 2 on 150 mm) |
+| 104 | Both drum ropes read as winding in the same sense |
+| −600 | Pulley PC read as hanging from bar B |
+| 133 | Pulley PB read as carried by bar A |
 
-Reserve misreads: 533 (rope 2 read as running on to the ceiling), −107 (PA read as fixed).
+Reserve misreads: 800 (rope 2 read as running on to the ceiling), −160 (PA read as fixed). All misread values are whole numbers at 3 s.f., matching the GTFA format.
 
 ## Step 8: Model failure templates (fill from the real response)
 
 Error type: Connectivity / topology error
 
-### Misread 1: PF read as fixed (−533)
+### Misread 1: PF read as fixed (−800)
 ```
-The response fails by misreading the carrier of the pulley just below the ceiling on the right (topological confusion). Its equations for ropes 1, 2 and 4 are correct. However, it states "<quote>", treating that pulley as fixed, so its rope 3 equation becomes −2v_C − v_A = 0 (v_A = −2v_C) and it obtains v_C = −533 mm/s. In the drawing, that pulley has no strap to the ceiling: its long thick strap runs straight down to a dot on top of bar A, so it moves with A. Rope 3 then gives v_A = 2v_C, and the four equations give v_C = −0.8/3.5 = −0.228571 m/s = −229 mm/s. The misread gives −533 instead of the correct −229.
-```
-
-### Misread 2: drum ropes read as same sense (69.6)
-```
-The response fails by misreading how the two ropes leave the stepped drum (topological confusion). It states "<quote>", so both ropes pay out together and it uses −v_E − 2v_A + Rω = 0 with −2v_B + v_A + rω = 0, giving v_C = 69.6 mm/s. In the drawing, rope 1 leaves the 150 mm groove on the drum's left side and rope 2 leaves the 60 mm groove on its right side, so one rotation pays out rope 1 while winding in rope 2. With opposite senses, the solution is v_C = −229 mm/s. The misread gives 69.6 instead of the correct −229.
+The response fails by misreading the carrier of the pulley just below the ceiling on the right (topological confusion). Its equations for ropes 1, 2 and 4 are correct. However, it states "<quote>", treating that pulley as fixed, so its rope 3 equation becomes −2v_C − v_A = 0 (v_A = −2v_C) and it obtains v_C = −800 mm/s. In the drawing, that pulley has no strap to the ceiling: its long thick strap runs straight down to a dot on top of bar A, so it moves with A. Rope 3 then gives v_A = 2v_C, and the four equations give v_C = −1.2/3.5 = −0.342857 m/s = −343 mm/s. The misread gives −800 instead of the correct −343.
 ```
 
-### Misread 3: grooves swapped (286)
+### Misread 2: drum ropes read as same sense (104)
 ```
-The response fails by misreading which drum groove carries which rope (spatial confusion). It states "<quote>", putting rope 1 on the 60 mm groove and rope 2 on the 150 mm groove, so R/r is inverted (0.4 instead of 2.5) and v_C = 286 mm/s. In the drawing, rope 1 is tangent to the outer circle (marked 150 mm) on the left, and rope 2 is tangent to the inner circle (marked 60 mm) on the right and is drawn across the outer disc. With R/r = 2.5, v_C = −0.8/(3 × 2.5 − 4) = −229 mm/s. The misread gives 286 instead of the correct −229.
+The response fails by misreading how the two ropes leave the stepped drum (topological confusion). It states "<quote>", so both ropes pay out together and it uses −v_E − 2v_A + Rω = 0 with −2v_B + v_A + rω = 0, giving v_C = 104 mm/s. In the drawing, rope 1 leaves the 150 mm groove on the drum's left side and rope 2 leaves the 60 mm groove on its right side, so one rotation pays out rope 1 while winding in rope 2. With opposite senses, the solution is v_C = −343 mm/s. The misread gives 104 instead of the correct −343.
+```
+
+### Misread 3: grooves swapped (429)
+```
+The response fails by misreading which drum groove carries which rope (spatial confusion). It states "<quote>", putting rope 1 on the 60 mm groove and rope 2 on the 150 mm groove, so R/r is inverted (0.4 instead of 2.5) and v_C = 429 mm/s. In the drawing, rope 1 is tangent to the outer circle (marked 150 mm) on the left, and rope 2 is tangent to the inner circle (marked 60 mm) on the right and is drawn across the outer disc. With R/r = 2.5, v_C = −1.2/(3 × 2.5 − 4) = −343 mm/s. The misread gives 429 instead of the correct −343.
 ```
 
 ## QC Justification: Science Judge
@@ -144,7 +144,7 @@ The Science Judge finding is incorrect and requires no change to the task.
 
 The finding states that the prompt contains no task or requested quantity, or that units and precision are missing [or quotes the author attestation, which is not part of the prompt]. The saved prompt defines the system: "Consider the hoisting arrangement shown in front elevation. ...". It states the conditions verbatim: "The free end of the rope is pulled downward at the speed marked. All ropes are inextensible, remain taut, run vertically between pulleys, and do not slip on the drum." It names exactly one requested quantity, with units and precision: "Determine the velocity of block C in mm/s, reported to 3 significant figures, taking upward as positive and downward as negative." The closing boilerplate repeats the units and significant figures.
 
-With these conditions the answer is uniquely determined (-229), as shown in the step-by-step solution. The image description's final paragraph restates the conditions and requested quantity, and Step 1 of the solution attributes them to the prompt.
+With these conditions the answer is uniquely determined (-343), as shown in the step-by-step solution. The image description's final paragraph restates the conditions and requested quantity, and Step 1 of the solution attributes them to the prompt.
 
 The finding is an artefact of the prompt text not being evaluated, not an omission in the task.
 ```
@@ -155,7 +155,7 @@ The Image Description Checker finding is incorrect; the description matches the 
 
 The pulley just below the ceiling on the right has no strap or dot at the ceiling: there is a visible gap between its rim and the ceiling band. Its only strap is the long thick line from its axle straight down to a filled dot on top of bar A. The other ceiling-mounted members (F1, the drum and F2) each have a short thick strap ending at a dot on the ceiling, and this pulley has none. It is therefore carried by bar A and moves with it.
 
-The description has been made explicit on this point; the topology, values and GTFA (-229) are unchanged.
+The description has been made explicit on this point; the topology, values and GTFA (-343) are unchanged.
 ```
 
 ## Model responses log

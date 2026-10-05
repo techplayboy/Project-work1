@@ -21,6 +21,13 @@ Evidence behind the lessons. Read before designing; **append a row after every t
 | # | Task | Subdomain | GTFA | Result | Lesson |
 |---|---|---|---|---|---|
 | 12 | Hydraulic v4 (bleed-off, series, divider, regen) | Fluid power | 114 | **Both solved** (114, 114) | Sequential chain, so each stage could be solved locally. The prompt spelled out the symbol conventions (check-valve direction, pilot logic, 'all cylinders moving'), and the models quoted them back. Dots, solenoid labels and outlet labels were read correctly; the hop swap trap did nothing because the model mapped the outlet label to its endpoint |
-| 13 | Pulley v1 (stepped drum, 4 ropes, 3 members) | Mechanisms / kinematics | −229 | pending | Built from lesson 12: 4×4 coupled system, minimal prompt conventions, long ropes crossing bars without dots, pulley near the ceiling strapped to a moving bar |
+| 13 | Pulley v1 (stepped drum, 4 ropes, 3 members) | Mechanisms / kinematics | −343 | pending | Built from lesson 12: 4×4 coupled system, minimal prompt conventions, long ropes crossing bars without dots, pulley near the ceiling strapped to a moving bar |
+
+
+### Results from the user's playbook (separate builds with the same names, not the `tasks/` folders here)
+| Task | GTFA | Result | Lesson |
+|---|---|---|---|
+| Hydraulic v4 (playbook build) | 241 mm/s | **Both failed** (64.7, 50.3) | Worked: a pilot line whose only dot is on a tank line; regeneration through a hop then a dot; lever dimensions all measured from one end; the active envelope. No longer traps on their own: a bypass check on the FCV, a rod on the non-standard side, a rod-to-rod series line. Final distractors 428, 382, 623, 142, 164 (all whole) |
+| Gearbox v4 (playbook build) | −1260 rpm | Submitted, awaiting | Three coupled sets, 7 reads |
 
 <!-- Append: | n | task | subdomain | GTFA | result (answers) | lesson | -->

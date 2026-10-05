@@ -14,6 +14,7 @@ Reference files (load when the step needs them):
 
 | File | Load when |
 |---|---|
+| `references/PLAYBOOK.md` | **Primary reference.** The user's consolidated playbook (process phases A–F, distractor format rule, platform fixes, trap catalogue). Read it at the start of every new task |
 | `references/field-rules.md` | Writing any platform field (Steps 3–10), LaTeX, boilerplate |
 | `references/model-behaviour.md` | Designing traps; analysing model responses |
 | `references/subdomain-playbook.md` | Starting a task in any subdomain |
@@ -46,6 +47,15 @@ Reference files (load when the step needs them):
    arrowheads, datums). Self-made images only (recall risk with public figures).
 8. **Prompt** ≤2000 chars, all numbers in LaTeX, never "in the image"/"provided image"/"Image 1",
    ends with the exact boilerplate (see `field-rules.md`).
+9. **Distractors must match the GTFA's format** (Distractor Format Checker, FORMAT_MISMATCH).
+   With a whole-number GTFA, every distractor must be whole at the requested s.f., so in
+   Phase B design the data so that misreads have **|value| ≥ 100**. Misreads must be ≥ 10 %
+   apart from each other and ≥ 25 % (aim for ≥ 50 %) from the GTFA. Each distractor is the
+   exact value of one named misread; never a filler value.
+10. **Draw to scale.** The models compare dimensions against pixel scale.
+11. **Step 8:** pick a response whose error is a clear, quotable misread of the drawing. Avoid
+    failures that depend on a convention (for example, which envelope a solenoid selects),
+    which a reviewer can call a knowledge gap.
 
 ## Workflow A — new task
 

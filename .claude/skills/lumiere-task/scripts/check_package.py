@@ -177,6 +177,23 @@ def main():
                 v = num(it.split()[0]) if it else None
                 if v is not None and abs(v - gval) / abs(gval) < 0.25:
                     W(f"Step 10: distractor {it} is within 25% of GTFA {g}")
+        # Distractor Format Checker (FORMAT_MISMATCH): decimals vs whole-number GTFA, and vice versa
+        if g is not None:
+            g_whole = "." not in g
+            vals = []
+            for it in items:
+                tok = it.split()[0] if it else ""
+                if num(tok) is None:
+                    continue
+                vals.append(num(tok))
+                if ("." not in tok) != g_whole:
+                    E(f"Step 10: distractor {tok} format ({'decimal' if '.' in tok else 'whole'}) "
+                      f"does not match GTFA {g} ({'whole' if g_whole else 'decimal'}) -> FORMAT_MISMATCH")
+            for i in range(len(vals)):
+                for j in range(i + 1, len(vals)):
+                    va, vb = vals[i], vals[j]
+                    if max(abs(va), abs(vb)) and abs(va - vb) / max(abs(va), abs(vb)) < 0.10:
+                        W(f"Step 10: distractors {va:g} and {vb:g} are within 10% of each other")
 
     # ---- Step 8 (optional, may be templates)
     if 8 in S and re.search(r"Response \$\d", S[8][0]):

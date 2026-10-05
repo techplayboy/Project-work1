@@ -1,6 +1,6 @@
 # Hydraulic v4 (bleed-off, series feed, flow divider, regeneration): task package
 
-Subdomain: Mechanical Engineering: fluid power · Image: `hydraulic_v4.png` · GTFA: 114 · Status: draft
+Subdomain: Mechanical Engineering: fluid power · Image: `hydraulic_v4.png` · GTFA: 114 · Status: **RETIRED: both models solved it (see responses/RESULT.md); do not resubmit**
 
 ---
 
