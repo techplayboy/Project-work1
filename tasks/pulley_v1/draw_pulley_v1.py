@@ -48,9 +48,10 @@ def pulley(x, y, rho, top_wrap):
     ax.add_patch(Arc((x, y), 2 * rho, 2 * rho, theta1=t1, theta2=t2, color=EDGE, lw=RL + 1.2, zorder=8))
 
 
-def bar(x0, x1, yc, lab, h=0.3):
+def bar(x0, x1, yc, lab, h=0.3, lab_xy=None):
     box(ax, x0, yc - h / 2, x1 - x0, h, z=4)
-    txt(ax, x0 - 0.18, yc, lab, ha="right", fs=17)
+    lx, ly = lab_xy if lab_xy else (x0 - 0.18, yc)
+    txt(ax, lx, ly, lab, ha="right" if not lab_xy else "center", fs=17)
 
 
 # ---------------- ceiling ----------------
@@ -78,7 +79,7 @@ for (x, y, p) in (F1, F2):
 
 # ---------------- bars A, B and block C ----------------
 YA, YB = 6.0, 4.4
-bar(1.0, 6.8, YA, "A")
+bar(1.0, 6.65, YA, "A", lab_xy=(1.22, YA - 0.45))
 bar(2.6, 8.55, YB, "B")
 box(ax, 4.6, 1.3, 2.7, 0.9, z=4)
 txt(ax, 5.95, 1.75, "C", fs=17)
@@ -124,4 +125,5 @@ rope([(F2[0] - F2[2], 2.2), (F2[0] - F2[2], F2[1])]); dot(ax, F2[0] - F2[2], 2.2
 rope([(F2[0] + F2[2], F2[1]), (F2[0] + F2[2], PB2[1])])
 rope([(PB2[0] + PB2[2], PB2[1]), (PB2[0] + PB2[2], YCEIL)]); dot(ax, PB2[0] + PB2[2], YCEIL)
 
-save_png(fig, ax, str(OUT), xlim=(-0.4, 9.4), ylim=(1.0, 10.6))
+save_png(fig, ax, str(OUT), xlim=(-0.4, 9.4), ylim=(1.0, 10.6),
+         tiles_dir="/tmp/claude-0/-home-user-Project-work1/f59a2cfe-32ca-5f2f-841c-18103fedd135/scratchpad/tiles")

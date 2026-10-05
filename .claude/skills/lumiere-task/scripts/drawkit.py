@@ -30,6 +30,7 @@ FS = 16
 __all__ = [
     "LW", "EDGE", "FS", "new_canvas", "line", "box", "circle", "dot", "txt", "arrow",
     "hop", "ground_hatch", "spring", "tank", "zigzag_resistor", "save_png", "check_png",
+    "check_text_overlaps", "save_tiles",
 ]
 
 
@@ -125,8 +126,49 @@ def tank(ax, x, y, w=1.05):
     line(ax, [(x - w / 2 + 0.17, y - 0.18), (x + w / 2 - 0.17, y - 0.18)], lw=1.4)
 
 
-def save_png(fig, ax, path, xlim=None, ylim=None, equal=True, pad=0.20, dpi=200):
-    """Save opaque-white RGB PNG at native resolution and run check_png."""
+def check_text_overlaps(fig, ax, shrink_px=2.0):
+    """Return WARN strings for every non-empty text whose box touches a drawn line or patch
+    outline (labels sitting on a rope/wire/edge make the topology ambiguous)."""
+    from matplotlib.transforms import Bbox
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    shapes = [("line", l, l.get_transform().transform_path(l.get_path())) for l in ax.lines]
+    shapes += [("patch", p_, p_.get_transform().transform_path(p_.get_path())) for p_ in ax.patches]
+    out = []
+    for t in ax.texts:
+        if not t.get_text().strip() or not t.get_visible():
+            continue
+        bb = t.get_window_extent(rend)
+        bb = Bbox.from_extents(bb.x0 + shrink_px, bb.y0 + shrink_px, bb.x1 - shrink_px, bb.y1 - shrink_px)
+        hits = [kind for kind, _, path in shapes if path.intersects_bbox(bb, filled=False)]
+        if hits:
+            x, y = t.get_position()
+            out.append(f"WARN text {t.get_text()!r} at ({x:.2f}, {y:.2f}) overlaps {len(hits)} "
+                       f"drawn element(s) ({', '.join(sorted(set(hits)))})")
+    return out
+
+
+def save_tiles(path, outdir, cols=3, rows=3, overlap=0.08):
+    """Save overlapping zoom tiles of a PNG for close visual inspection (Read each tile)."""
+    from pathlib import Path as _P
+    im = Image.open(path)
+    w, h = im.size
+    outdir = _P(outdir); outdir.mkdir(parents=True, exist_ok=True)
+    stem = _P(path).stem
+    files = []
+    for r in range(rows):
+        for c in range(cols):
+            x0 = max(0, int((c / cols - overlap) * w)); x1 = min(w, int(((c + 1) / cols + overlap) * w))
+            y0 = max(0, int((r / rows - overlap) * h)); y1 = min(h, int(((r + 1) / rows + overlap) * h))
+            f = outdir / f"{stem}_tile_r{r}c{c}.png"
+            im.crop((x0, y0, x1, y1)).save(f)
+            files.append(str(f))
+    return files
+
+
+def save_png(fig, ax, path, xlim=None, ylim=None, equal=True, pad=0.20, dpi=200, tiles_dir=None):
+    """Save opaque-white RGB PNG at native resolution, run the overlap and PNG checks, and
+    (if tiles_dir is given) write zoom tiles that MUST be inspected before handover."""
     if xlim:
         ax.set_xlim(*xlim)
     if ylim:
@@ -134,11 +176,15 @@ def save_png(fig, ax, path, xlim=None, ylim=None, equal=True, pad=0.20, dpi=200)
     if equal:
         ax.set_aspect("equal")
     ax.axis("off")
+    overlaps = check_text_overlaps(fig, ax)
     fig.savefig(path, dpi=dpi, facecolor="white", bbox_inches="tight", pad_inches=pad)
     plt.close(fig)
     Image.open(path).convert("RGB").save(path)
-    for msg in check_png(path):
+    for msg in overlaps + check_png(path):
         print(msg)
+    if tiles_dir:
+        tiles = save_tiles(path, tiles_dir)
+        print(f"inspect {len(tiles)} zoom tiles in {tiles_dir}")
     print(f"saved {path}")
 
 

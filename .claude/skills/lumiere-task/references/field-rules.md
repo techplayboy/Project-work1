@@ -30,7 +30,8 @@
   (3) two experts would read the same value?
 - matplotlib gotchas: white-filled patches paint over lower-zorder lines (set zorder
   explicitly; internal symbols at zorder ≥6); labels near crossings need manual offsets;
-  **check the PNG, not the code**.
+  **check the PNG, not the code**. Read the zoom tiles too (`save_png(tiles_dir=...)`):
+  a letter sitting on a rope was missed in the downscaled view of pulley v1.
 
 ## Step 3 — Source and License
 

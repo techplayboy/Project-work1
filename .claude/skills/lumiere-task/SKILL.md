@@ -59,9 +59,17 @@ Reference files (load when the step needs them):
 3. **Draw** `draw_<task>.py` using `scripts/drawkit.py`. The docstring encodes the full
    structure (topology, states, values). Route connections long and nested, ending next to
    decoys; label only what the prompt refers to; put input values in the image.
-4. **Render and inspect the PNG** with the Read tool (look at it — do not trust the code):
-   label collisions, clipping, white patches hiding lines, every dot/hop where intended, every
-   number legible. Fix and re-render until clean.
+4. **Render and cross-check the PNG — every time, after every change.**
+   - Call `save_png(..., tiles_dir=<scratchpad>/tiles)`. It runs `check_text_overlaps`, which
+     prints a WARN for any label touching a line or outline (for example, a label sitting on
+     a rope). Any WARN must be fixed.
+   - Read the full PNG, **then Read every zoom tile**. Downscaled views hide anomalies such as a
+     letter on a line, a white patch hiding a line end, or an arc on the wrong side.
+   - Check each item: every dot or fastening where intended and nowhere else; every crossing
+     unambiguous; every label next to its own element only; nothing clipped; every number
+     legible; the drawn topology equals the docstring and `verify.py`.
+   - Fix, re-render, and re-inspect until clean. Never hand over an image you have not
+     re-inspected after the last edit.
 5. **Write `TASK_PACKAGE.md`** from `templates/TASK_PACKAGE.md`: author trap table, Steps 3, 4,
    6, 7, 9, 10 paste-ready in code blocks, Step 8 templates per likely misread, QC Justifications.
 6. **Lint**: `python3 .claude/skills/lumiere-task/scripts/check_package.py tasks/<task>/TASK_PACKAGE.md --image tasks/<task>/<image>.png`.
@@ -102,7 +110,8 @@ defaults they relied on, close the self-check route they used).
 - [ ] Playbook row with ≥6 independent reads, each against a default; nothing solvable alone
 - [ ] Every misread computed: positive/plausible, uniquely solvable, ≥25% from GTFA
 - [ ] GTFA verified two ways in code
-- [ ] PNG rendered, white RGB background, inspected; no collisions; only needed labels
+- [ ] PNG rendered, white RGB background; `check_text_overlaps` clean; full image AND every zoom tile
+      re-inspected after the last edit; no collisions; only needed labels
 - [ ] Prompt ≤2000 chars, conditions only, one quantity, convention + tie-break, LaTeX, boilerplate
 - [ ] Description ≥200 words, geometric evidence, closing "The task prompt, not the image, ..." paragraph
 - [ ] Solution: Step 1 data, Steps 2–3 observation, principle, 6-s.f. intermediates, `Final Answer: <GTFA>`
