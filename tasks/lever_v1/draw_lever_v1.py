@@ -81,7 +81,9 @@ def dim(x1, y, text):
 def cylinder(xc, bore, rod, y0, h, y_lever):
     box(ax, xc - bore / 2, y0, bore, h)
     box(ax, xc - bore / 2, y0 + 0.55 * h, bore, 0.06)                          # piston
-    box(ax, xc - rod / 2, y0 + 0.55 * h + 0.06, rod, y_lever - (y0 + 0.55 * h + 0.06), z=3.5)
+    box(ax, xc - rod / 2, y0 + 0.55 * h + 0.06, rod, y_lever - (y0 + 0.55 * h + 0.06), z=4.5)
+    line(ax, [(xc - bore / 2, y0 + h), (xc - rod / 2, y0 + h)], z=4.6)                 # body top wall
+    line(ax, [(xc + rod / 2, y0 + h), (xc + bore / 2, y0 + h)], z=4.6)
 
 
 # ---------------- lever, pins, supports ----------------
@@ -94,8 +96,7 @@ ax.add_patch(Polygon([(4.5, YL), (4.18, 7.3), (4.82, 7.3)], closed=True, facecol
 ground_hatch(ax, 4.0, 7.05, 1.0, 0.25)
 vspring(2.5, YL - 0.1, 6.95)
 ground_hatch(ax, 2.2, 6.7, 0.6, 0.25)
-line(ax, [(10.0, YL + 0.18), (10.0, YL + 0.42)], lw=1.2)
-txt(ax, 10.18, YL + 0.36, "L", ha="left", fs=17)
+txt(ax, 10.15, YL, "L", ha="left", fs=17)
 
 # ---------------- baseline dimensions (from the left end) ----------------
 line(ax, [(0, 8.15), (0, 10.25)], lw=0.7, z=2)
@@ -136,8 +137,8 @@ arrow(ax, rx + o2, VY + 0.42, 0, -0.24)
 for xs in (VX - 0.7, VX + 3 * SQ):
     box(ax, xs, VY + 0.28, 0.7, 0.74)
     line(ax, [(xs + 0.14, VY + 0.28), (xs + 0.56, VY + 1.02)], lw=1.4, z=6)
-txt(ax, VX - 0.35, VY - 0.28, "Y1", fs=14)
-txt(ax, VX + 3 * SQ + 0.35, VY - 0.28, "Y2", fs=14)
+txt(ax, VX - 0.35, VY + 1.3, "Y1", fs=14)
+txt(ax, VX + 3 * SQ + 0.35, VY + 1.3, "Y2", fs=14)
 PA, PB = cx + o1, cx + o2
 for xp, lab, yy in ((PA - 0.2, "A", VY + VH + 0.18), (PB + 0.2, "B", VY + VH + 0.18),
                     (PA - 0.2, "P", VY - 0.18), (PB + 0.2, "T", VY - 0.18)):
@@ -151,18 +152,20 @@ ax.add_patch(Polygon([(pc[0], pc[1] + 0.36), (pc[0] - 0.17, pc[1] + 0.07), (pc[0
 txt(ax, pc[0] - 0.5, pc[1], "$36\\,\\mathrm{L/min}$", ha="right", fs=12)
 YPL = 1.2
 line(ax, [(pc[0], pc[1] + 0.38), (pc[0], YPL)])
-line(ax, [(pc[0], pc[1] - 0.38), (pc[0], 0.12)])
-tank(ax, pc[0], 0.12, w=0.6)
+line(ax, [(pc[0], pc[1] - 0.38), (pc[0], -0.05)])
+tank(ax, pc[0], -0.05, w=0.6)
 dot(ax, pc[0], YPL)
 rvx = 2.2
 dot(ax, rvx, YPL)
-line(ax, [(rvx, YPL), (rvx, 1.0)])
-box(ax, rvx - 0.25, 0.35, 0.5, 0.65)
-line(ax, [(rvx, 0.45), (rvx, 0.9)], lw=1.3, z=6)
-arrow(ax, rvx, 0.75, 0, -0.2, lw=1.3, scale=11)
-spring(ax, rvx + 0.25, 0.67, rvx + 0.7, n=4, amp=0.1)
-line(ax, [(rvx, 0.35), (rvx, 0.12)])
-tank(ax, rvx, 0.12, w=0.6)
+line(ax, [(rvx, YPL), (rvx, 0.85)])                        # inlet stub
+box(ax, rvx - 0.25, 0.2, 0.5, 0.65)
+line(ax, [(rvx, 0.3), (rvx, 0.75)], lw=1.3, z=6)
+arrow(ax, rvx, 0.6, 0, -0.2, lw=1.3, scale=11)
+spring(ax, rvx + 0.25, 0.52, rvx + 0.7, n=4, amp=0.1)
+dot(ax, rvx, 1.03)                                         # pilot take-off on the inlet stub
+line(ax, [(rvx, 1.03), (rvx - 0.45, 1.03), (rvx - 0.45, 0.52), (rvx - 0.25, 0.52)], ls=DASH, lw=1.2)
+line(ax, [(rvx, 0.2), (rvx, -0.05)])
+tank(ax, rvx, -0.05, w=0.6)
 line(ax, [(pc[0], YPL), (PA, YPL), (PA, VY)])
 line(ax, [(PB, VY), (PB, 0.6)])
 tank(ax, PB, 0.6, w=0.6)
@@ -200,4 +203,4 @@ tank(ax, 0.45, 3.1, w=0.6)
 line(ax, [(PX - 0.32, 5.35), (3.42, 5.35), (3.42, YD)], ls=DASH, lw=1.4)
 dot(ax, 3.42, YD)
 
-save_png(fig, ax, str(OUT), xlim=(-0.3, 10.6), ylim=(-0.1, 10.5), tiles_dir=TILES)
+save_png(fig, ax, str(OUT), xlim=(-0.3, 10.6), ylim=(-0.4, 10.5), tiles_dir=TILES)
