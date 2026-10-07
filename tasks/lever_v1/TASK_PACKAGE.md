@@ -63,17 +63,15 @@ The answer should be expressed in $\text{mm/s}$. Report your final answer as a $
 
 ## Step 7: Image description
 ```
-The figure, drawn to scale, shows a horizontal rigid lever at the top and an ISO 1219 hydraulic circuit below it. All numerical data are in the figure: the pump is marked 36 L/min, the left cylinder Ø80/Ø56 and the right cylinder Ø63/Ø50 (bore/rod, mm). Five baseline dimensions run above the lever. Each starts at the lever's left end and ends at a feature: 150, 250, 450, 700 and 1000 mm. The 1000 mm dimension ends at the right tip, which is marked L.
+The figure, drawn to scale, shows a rigid lever, drawn horizontal, at the top and an ISO 1219 hydraulic circuit below it. All numerical data are in the figure: the pump is marked 36 L/min, the left cylinder Ø80/Ø56 and the right cylinder Ø63/Ø50 (bore/rod, mm). Five baseline dimensions run above the lever. Each starts at the lever's left end and ends at a feature: 150, 250, 450, 700 and 1000 mm. The 1000 mm dimension ends at the right tip, which is marked L.
 
-Four pins lie on the lever, at 150, 250, 450 and 700 mm from the left end. The pin at 450 mm sits on the apex of a triangular clevis standing on a hatched ground block. The pin at 250 mm has only a coil spring hanging from it, ending on a small separate hatched block. The rod of the left cylinder rises to the pin at 150 mm, and the rod of the right cylinder rises to the pin at 700 mm. Both cylinders stand vertically below the lever, with their bodies at the bottom and pistons drawn as double lines; each rod is drawn running down through the upper chamber of its body to the piston, so the upper chamber is the rod end and the lower chamber the cap end.
+Four pins lie on the lever, at 150, 250, 450 and 700 mm from the left end. The pin at 450 mm sits on the apex of a rigid triangular clevis standing on a hatched ground block, and it is the lever's only fixed pivot. The pin at 250 mm is not supported rigidly: its only attachment is a coil spring down to a small separate hatched block, which does not fix the lever's position, so the arms of the lever are measured from the pin at 450 mm. The rod of the left cylinder rises to the pin at 150 mm, and the rod of the right cylinder rises to the pin at 700 mm. Both cylinders stand vertically below the lever, with their bodies at the bottom and pistons drawn as double lines; each rod is drawn running down through the upper chamber of its body to the piston, so the upper chamber is the rod end and the lower chamber the cap end.
 
-The directional valve has three envelopes, with ports A and B on top and P and T underneath, drawn on the centre envelope. Solenoid Y1 is at the left end and Y2 at the right end. The left envelope has two crossed diagonal arrows (P to B, A to T); the centre envelope has all ports blocked; the right envelope has two parallel arrows (P to A, B to T). The pump feeds P through a line on which a relief valve tees off at a dot to its own tank (its dashed pilot leaves its inlet at a separate dot), and T drops to a tank.
+The directional valve has three envelopes, with ports A and B on top and P and T underneath, drawn on the centre envelope. Solenoid Y1 is at the left end and Y2 at the right end. The left envelope, next to Y1, has two crossed diagonal arrows (P to B, A to T); the centre envelope has all ports blocked; the right envelope, next to Y2, has two parallel arrows (P to A, B to T). With Y1 energised and Y2 de-energised, the left envelope is the active spool position, so P is connected to B and A is connected to T. The pump feeds P through a line on which a relief valve tees off at a dot to its own tank (its dashed pilot leaves its inlet at a separate dot), and T drops to a tank.
 
 From port B a line rises to a dot. From there one horizontal line runs left to the bottom (cap) port of the left cylinder, and another runs right, up the far right side and into the right cylinder's side port, which lies above its piston. The bottom (cap) port of the right cylinder drops, runs left and descends to port A, crossing the B line with a hop.
 
 The left cylinder's side port, above its piston, runs right to a dot. From this dot one line descends through a check valve (seat apex on top, ball below), then hops over a horizontal drain line and ends at a dot on the B line. A second line goes right from the same dot and descends through a box containing a check valve (seat apex at the bottom, ball above) to a dot on the drain line. A dashed pilot line leaves the left side of that box and descends to its own dot on the drain line. The drain line runs left, crossing the left cylinder's supply line with a hop, to a tank.
-
-The task prompt, not the image, specifies the conditions: Y1 is energised and Y2 de-energised; the pump delivers its marked flow and the relief valve stays closed; at the instant shown the lever is horizontal and both cylinders are vertical; leakage, compressibility and line losses are ignored; lines connect only at dots. It asks for the speed of point L in mm/s to 3 significant figures.
 ```
 
 ## Step 9: Step-by-step solution
@@ -146,7 +144,7 @@ The Science Judge finding is incorrect and requires no change to the task.
 
 The finding states that the prompt contains no task or requested quantity, or that units and precision are missing [or quotes the author attestation, which is not part of the prompt]. The saved prompt defines the system: "Consider the lever actuator shown, consisting of a rigid lever and an ISO 1219 hydraulic circuit, drawn to scale, ...". It states the conditions verbatim: "Solenoid Y1 is energised and solenoid Y2 is de-energised. The pump delivers the flow marked and the relief valve remains closed. At the instant shown the lever is horizontal and both cylinders are vertical." It names exactly one requested quantity, with units and precision: "Determine the speed of point L in mm/s, reported to 3 significant figures." The closing boilerplate repeats them.
 
-With these conditions the answer is uniquely determined (321), as shown in the step-by-step solution. The image description's final paragraph restates the conditions and requested quantity, and Step 1 of the solution attributes them to the prompt.
+With these conditions the answer is uniquely determined (321), as shown in the step-by-step solution. Step 1 of the solution restates the conditions and attributes them to the prompt.
 
 The finding is an artefact of the prompt text not being evaluated, not an omission in the task.
 ```
@@ -165,3 +163,14 @@ The description has been made explicit on these points; the topology, values and
 ## Model responses log
 | Response | Final answer | Stated reading | Reproduced? | Usable for Step 8? |
 |---|---|---|---|---|
+
+## QC Justification: Image Description Checker, findings on the description (rebuttal / changes made)
+```
+Finding 1 (MISSING_SOLVE_CRITICAL_DETAIL, active envelope): accepted and corrected in the description. The description now states that the left envelope, next to Y1, is the active spool position when Y1 is energised and Y2 de-energised, so P is connected to B and A to T. The figure already shows this: the crossed-arrow envelope is the one adjacent to the Y1 solenoid at the left end of the valve.
+
+Finding 2 (IRRELEVANT_DETAIL, spring): the detail is required to solve the task, so it is retained. Two lever pins sit on hatched ground blocks; the pin at 250 mm is attached to its block only through a coil spring, while the pin at 450 mm sits on a rigid triangular clevis. The spring is therefore the evidence that the pin at 250 mm is not the pivot, which fixes the lever arms (300, 250 and 550 mm from the pin at 450 mm) and hence the speed of point L. The description now states this relevance explicitly.
+
+Finding 3 (META_COMMENTARY): accepted. The closing paragraph about where the conditions come from has been removed; the description now describes only the figure, including that the lever is drawn horizontal and the cylinders vertical.
+
+The topology, values and GTFA (321) are unchanged.
+```

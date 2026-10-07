@@ -81,11 +81,11 @@ The finding claims "<quote finding>". The figure shows <what is drawn, with numb
 The description has been made more explicit on this point; the topology, values and GTFA (<GTFA>) are unchanged.
 ```
 
-## Description closing paragraph
+## Description closing paragraph: RETIRED
 
-```
-The task prompt, not the image, specifies the conditions: <list>. It asks for <quantity> in <units> to <N> significant figures.
-```
+Do not end the description with "The task prompt, not the image, specifies the conditions…". The Image
+Description Checker flags it as META_COMMENTARY (MAJOR ERROR, lever v1). Describe the figure only, including
+the resolved state of switched elements, and handle Science Judge findings with the QC Justification above.
 
 ## Licence fields
 

@@ -96,8 +96,14 @@ short exact answer (word, list, path). Never a sentence.
   checker misreads images too and you will need to rebut it.
 - State that all numerical data are in the figure (or which come from the prompt). Give the full
   state-to-component mapping where relevant.
-- **End with**: "The task prompt, not the image, specifies the conditions: <list>. It asks for
-  <quantity> in <units> to <N> significant figures."
+- **Do NOT add a closing "The task prompt, not the image, specifies the conditions…" paragraph.**
+  The Image Description Checker flags it as META_COMMENTARY (MAJOR ERROR, lever v1). Describe only
+  the figure; answer Science Judge findings with the QC Justification instead.
+- **State the resolved state of every switched element** (for example, "with Y1 energised the left envelope is
+  the active spool position, so P–B and A–T"). Otherwise the checker raises MISSING_SOLVE_CRITICAL_DETAIL.
+  This goes in the description only, never in the prompt.
+- **Tie each decoy detail to what it proves** ("the pin at 250 mm is attached only by a spring, so the
+  pivot is the pin at 450 mm"). A bare decoy detail is flagged as IRRELEVANT_DETAIL.
 
 ## Step 8 — Model failure mode + justification
 

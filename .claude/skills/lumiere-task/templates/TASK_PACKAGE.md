@@ -53,8 +53,6 @@ The answer should be expressed in $\text{<UNITS>}$. Report your final answer as 
 ## Step 7 — Image description
 ```
 <≥200 words. What is drawn, with geometric evidence for every connection that matters (dot vs hop, gaps, pins through centres, arrowhead ends, sides lines enter from, datums, axis assignment). State that all numerical data are in the figure.>
-
-The task prompt, not the image, specifies the conditions: <list>. It asks for <quantity> in <units> to <N> significant figures.
 ```
 
 ## Step 9 — Step-by-step solution
