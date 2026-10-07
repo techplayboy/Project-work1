@@ -176,3 +176,14 @@ Finding 3 (META_COMMENTARY): accepted. The closing paragraph about where the con
 
 The topology, values and GTFA (321) are unchanged.
 ```
+
+## QC Justification: Science Judge (AMBIGUOUS_PROMPT + UNSTATED_ASSUMPTION, after testing)
+```
+Both Science Judge findings are incorrect and require no change to the task.
+
+Finding 1 (AMBIGUOUS_PROMPT) states that the prompt requests no engineering quantity, and it quotes nothing from the prompt ("Quote: N/A"). The saved prompt names exactly one quantity, with its units and precision: "Determine the speed of point L in mm/s, reported to 3 significant figures." The closing boilerplate repeats this: "The answer should be expressed in mm/s. Report your final answer as a 3 significant figure number without units." Point L is labelled at the right tip of the lever in the figure, so the requested quantity and the unique final answer (321) are defined. Both checker-model responses identified and computed this same quantity (each reported a speed of point L in mm/s), which confirms that the request is unambiguous.
+
+Finding 2 (UNSTATED_ASSUMPTION) states that "the relief valve stays closed" cannot be inferred without relief-setting and load data. It does not need to be inferred: it is an explicit condition given in the prompt, which states verbatim "The pump delivers the flow marked and the relief valve remains closed." The prompt therefore stipulates that the full marked pump flow (36 L/min) enters the circuit, so no relief setting or load data are required. The quoted wording comes from Step 1 of the solution, which restates the prompt's conditions and attributes them to the prompt.
+
+With these stated conditions the answer is uniquely determined (321), as shown in the step-by-step solution. Both findings are artefacts of the prompt text not being fully evaluated, not omissions in the task.
+```
