@@ -76,67 +76,83 @@ The left cylinder's side port, above its piston, runs right to a dot. From this 
 
 ## Step 9: Step-by-step solution
 ```
-Step 1: Record the operating conditions given in the prompt: solenoid Y1 is energised, solenoid Y2 is de-energised, the pump delivers its marked flow, the relief valve remains closed, the lever is horizontal and both cylinders are vertical at the instant shown, leakage, fluid compressibility and line losses are ignored, and lines are connected only at dots. The constant π is taken as 3.142 (4 significant figures), as the prompt requires for unstated constants.
+Step 1: Record the operating conditions given in the prompt: solenoid Y1 is energised, solenoid Y2 is de-energised, the pump delivers its marked flow, the relief valve remains closed, the lever is horizontal and both cylinders are vertical at the instant shown, leakage, fluid compressibility and line losses are ignored, and lines are connected only at dots.
 
-Step 2: Read the pump flow from the figure and convert it: Q = 36 L/min = 36 × 10^6 mm^3 / 60 s = 600000 mm^3/s.
+Step 2: State the constant used: π is taken as 3.142 (4 significant figures), as the prompt requires for unstated fundamental constants.
 
-Step 3: Read the cylinder sizes from the figure: the left cylinder (X) is Ø80/Ø56, so its bore D_X = 80 mm and rod d_X = 56 mm; the right cylinder (Y) is Ø63/Ø50, so its bore D_Y = 63 mm and rod d_Y = 50 mm.
+Step 3: Read the pump flow from the figure and convert it: Q = 36 L/min = 36 × 10^6 mm^3 / 60 s = 600000 mm^3/s.
 
-Step 4: Read the lever positions from the baseline dimensions, all measured from the lever's left end: X rod pin at 150 mm, spring pin at 250 mm, clevis pin at 450 mm, Y rod pin at 700 mm and point L at 1000 mm.
+Step 4: Read the size of the left cylinder (X) from the figure: Ø80/Ø56, so its bore D_X = 80 mm and its rod d_X = 56 mm.
 
-Step 5: Identify the pivot: the pin at 450 mm sits on a rigid triangular clevis on a hatched ground block, whereas the pin at 250 mm is attached only through a coil spring and cannot fix the lever, so the lever pivots about the pin at 450 mm.
+Step 5: Read the size of the right cylinder (Y) from the figure: Ø63/Ø50, so its bore D_Y = 63 mm and its rod d_Y = 50 mm.
 
-Step 6: Compute the moment arm of cylinder X about the pivot: a_X = 450 − 150 = 300 mm (left of the pivot).
+Step 6: Read the lever positions from the baseline dimensions, all measured from the lever's left end: X rod pin at 150 mm, spring pin at 250 mm, clevis pin at 450 mm, Y rod pin at 700 mm and point L at 1000 mm.
 
-Step 7: Compute the moment arm of cylinder Y about the pivot: a_Y = 700 − 450 = 250 mm (right of the pivot).
+Step 7: Identify the pivot: the pin at 450 mm sits on a rigid triangular clevis on a hatched ground block, whereas the pin at 250 mm is attached only through a coil spring and cannot fix the lever, so the lever pivots about the pin at 450 mm.
 
-Step 8: Compute the moment arm of point L about the pivot: a_L = 1000 − 450 = 550 mm (right of the pivot).
+Step 8: Compute the moment arm of cylinder X about the pivot: a_X = 450 − 150 = 300 mm (left of the pivot).
 
-Step 9: Identify the active valve position: Y1 at the left end of the valve is energised, so the left envelope is active, and its crossed arrows connect P to B and A to T.
+Step 9: Compute the moment arm of cylinder Y about the pivot: a_Y = 700 − 450 = 250 mm (right of the pivot).
 
-Step 10: Trace line B: from port B it reaches a dot, then branches to the bottom (cap) port of cylinder X and to the side port of cylinder Y above its piston, which is Y's rod end because the rod runs through that chamber.
+Step 10: Compute the moment arm of point L about the pivot: a_L = 1000 − 450 = 550 mm (right of the pivot).
 
-Step 11: Trace line A: the bottom (cap) port of cylinder Y runs to port A, crossing line B with a hop, so Y's cap end drains through A to T and the tank.
+Step 11: Identify the active valve position: Y1 at the left end of the valve is energised, so the left envelope is active, and its crossed arrows connect P to B and A to T.
 
-Step 12: Determine the state of the pilot-operated check valve on X's rod-end line: its dashed pilot line ends at a dot on the drain line, which is at tank pressure, so the valve stays closed in its blocked direction.
+Step 12: Trace the first branch of line B: from port B the line reaches a dot and runs left to the bottom (cap) port of cylinder X.
 
-Step 13: Trace the remaining exit from X's rod end: the line through the plain check valve hops over the drain line and ends at a dot on line B, so X's rod-end oil returns to the supply line (regeneration).
+Step 13: Trace the second branch of line B: from the same dot the line runs right and enters the side port of cylinder Y above its piston, which is Y's rod end because the rod runs through that chamber.
 
-Step 14: Determine the direction of motion: supply into X's cap extends X and lifts the lever's left side; supply into Y's rod end retracts Y and pulls the lever's right side down; both act in the same rotational sense, so the lever turns about the pivot with one angular velocity ω.
+Step 14: Trace line A: the bottom (cap) port of cylinder Y runs to port A, crossing line B with a hop, so Y's cap end drains through A to T and the tank.
 
-Step 15: Write the rigid-lever kinematics at the instant shown: v_X = a_X ω = 300 ω, v_Y = a_Y ω = 250 ω and v_L = a_L ω = 550 ω (mm/s with ω in rad/s).
+Step 15: Determine the state of the pilot-operated check valve on X's rod-end line: its dashed pilot line ends at a dot on the drain line, which is at tank pressure, so the valve stays closed in its blocked direction.
 
-Step 16: Compute the cap area of X: A_X,cap = π D_X^2 / 4 = 3.142 × 80^2 / 4 = 5027.20 mm^2.
+Step 16: Trace the remaining exit from X's rod end: the line through the plain check valve hops over the drain line and ends at a dot on line B, so X's rod-end oil returns to the supply line (regeneration).
 
-Step 17: Compute the rod area of X: A_X,rod = π d_X^2 / 4 = 3.142 × 56^2 / 4 = 2463.33 mm^2.
+Step 17: Determine the motion of cylinder X: supply into X's cap extends X, lifting the lever's left side.
 
-Step 18: Compute the annulus area of X: A_X,ann = A_X,cap − A_X,rod = 5027.20 − 2463.33 = 2563.87 mm^2.
+Step 18: Determine the motion of cylinder Y: supply into Y's rod end retracts Y, pulling the lever's right side down, which is the same rotational sense as Step 17, so the lever turns about the pivot with a single angular velocity ω.
 
-Step 19: Compute the cap area of Y: A_Y,cap = π D_Y^2 / 4 = 3.142 × 63^2 / 4 = 3117.65 mm^2.
+Step 19: Write the speed of cylinder X from rigid-lever kinematics: v_X = a_X ω = 300 ω.
 
-Step 20: Compute the rod area of Y: A_Y,rod = π d_Y^2 / 4 = 3.142 × 50^2 / 4 = 1963.75 mm^2.
+Step 20: Write the speed of cylinder Y from rigid-lever kinematics: v_Y = a_Y ω = 250 ω.
 
-Step 21: Compute the annulus area of Y: A_Y,ann = A_Y,cap − A_Y,rod = 3117.65 − 1963.75 = 1153.90 mm^2.
+Step 21: Write the speed of point L from rigid-lever kinematics: v_L = a_L ω = 550 ω.
 
-Step 22: Write continuity for line B (incompressible, no leakage): inflow = pump flow + X rod-end return, outflow = X cap inflow + Y rod-end inflow, so Q + v_X A_X,ann = v_X A_X,cap + v_Y A_Y,ann.
+Step 22: Compute the cap area of X: A_X,cap = π D_X^2 / 4 = 3.142 × 80^2 / 4 = 5027.20 mm^2.
 
-Step 23: Rearrange using A_X,cap − A_X,ann = A_X,rod: Q = v_X A_X,rod + v_Y A_Y,ann.
+Step 23: Compute the rod area of X: A_X,rod = π d_X^2 / 4 = 3.142 × 56^2 / 4 = 2463.33 mm^2.
 
-Step 24: Substitute the kinematics from Step 15: Q = ω (a_X A_X,rod + a_Y A_Y,ann).
+Step 24: Compute the annulus area of X: A_X,ann = A_X,cap − A_X,rod = 5027.20 − 2463.33 = 2563.87 mm^2.
 
-Step 25: Evaluate the first term: a_X A_X,rod = 300 × 2463.33 = 738998 mm^3.
+Step 25: Compute the cap area of Y: A_Y,cap = π D_Y^2 / 4 = 3.142 × 63^2 / 4 = 3117.65 mm^2.
 
-Step 26: Evaluate the second term: a_Y A_Y,ann = 250 × 1153.90 = 288475 mm^3.
+Step 26: Compute the rod area of Y: A_Y,rod = π d_Y^2 / 4 = 3.142 × 50^2 / 4 = 1963.75 mm^2.
 
-Step 27: Add the terms: a_X A_X,rod + a_Y A_Y,ann = 738998 + 288475 = 1.02747 × 10^6 mm^3.
+Step 27: Compute the annulus area of Y: A_Y,ann = A_Y,cap − A_Y,rod = 3117.65 − 1963.75 = 1153.90 mm^2.
 
-Step 28: Solve for the angular velocity: ω = 600000 / 1.02747 × 10^6 = 0.583957 rad/s.
+Step 28: Write continuity for line B (incompressible, no leakage): inflow = pump flow + X rod-end return and outflow = X cap inflow + Y rod-end inflow, so Q + v_X A_X,ann = v_X A_X,cap + v_Y A_Y,ann.
 
-Step 29: Compute the speed of point L: v_L = 550 × 0.583957 = 321.176 mm/s.
+Step 29: Rearrange using A_X,cap − A_X,ann = A_X,rod: Q = v_X A_X,rod + v_Y A_Y,ann.
 
-Step 30: Cross-check continuity with v_X = 300 × 0.583957 = 175.187 mm/s and v_Y = 250 × 0.583957 = 145.989 mm/s: inflow = 600000 + 175.187 × 2563.87 = 1049157 mm^3/s; outflow = 175.187 × 5027.20 + 145.989 × 1153.90 = 880700 + 168457 = 1049157 mm^3/s, which balances.
+Step 30: Substitute the speeds from Steps 19 and 20: Q = ω (a_X A_X,rod + a_Y A_Y,ann).
 
-Step 31: Round v_L = 321.176 mm/s to 3 significant figures: 321 mm/s.
+Step 31: Evaluate the first term: a_X A_X,rod = 300 × 2463.33 = 738999 mm^3.
+
+Step 32: Evaluate the second term: a_Y A_Y,ann = 250 × 1153.90 = 288475 mm^3.
+
+Step 33: Add the two terms: 738999 + 288475 = 1.02747 × 10^6 mm^3.
+
+Step 34: Solve for the angular velocity: ω = 600000 / (1.02747 × 10^6) = 0.583959 rad/s.
+
+Step 35: Compute the speed of point L: v_L = 550 × 0.583959 = 321.177 mm/s.
+
+Step 36: Compute the cylinder speeds for a check: v_X = 300 × 0.583959 = 175.188 mm/s and v_Y = 250 × 0.583959 = 145.990 mm/s.
+
+Step 37: Evaluate the inflow to line B: Q + v_X A_X,ann = 600000 + 175.188 × 2563.87 = 1.04916 × 10^6 mm^3/s.
+
+Step 38: Evaluate the outflow from line B: v_X A_X,cap + v_Y A_Y,ann = 175.188 × 5027.20 + 145.990 × 1153.90 = 1.04916 × 10^6 mm^3/s, which equals the inflow, so continuity is satisfied.
+
+Step 39: Round v_L = 321.177 mm/s to 3 significant figures: 321 mm/s.
 
 Final Answer: 321
 ```

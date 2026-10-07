@@ -121,6 +121,9 @@ short exact answer (word, list, path). Never a sentence.
   expect 20–30 steps.
 - **Use unstated constants at the precision the prompt states** ("4 significant figures" means
   π = 3.142), and say so in Step 1.
+- **Recompute every step from the values as written** (rounded to 6 s.f.), not from unrounded
+  code values. A reviewer checking 300 × 2463.33 expects 738999, not 738998. Cross-checks agree
+  to 6 s.f., not to the last digit.
 - **Step 1**: conditions from the prompt and data from the figure (say which is which — pre-empts
   GROUNDING_GAP).
 - **Steps 2–3**: observation only (what the drawing shows: connections, states, values).
