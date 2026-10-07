@@ -123,7 +123,8 @@ defaults they relied on, close the self-check route they used).
 - [ ] PNG rendered, white RGB background; `check_text_overlaps` clean; full image AND every zoom tile
       re-inspected after the last edit; no collisions; only needed labels
 - [ ] Prompt ≤2000 chars, conditions only, one quantity, convention + tie-break, LaTeX, boilerplate
-- [ ] Description ≥200 words, geometric evidence, closing "The task prompt, not the image, ..." paragraph
+- [ ] Description ≥200 words, geometric evidence, resolved switched states, decoys tied to what they prove,
+      NO meta paragraph about the prompt (META_COMMENTARY)
 - [ ] Solution: Step 1 data, Steps 2–3 observation, principle, 6-s.f. intermediates, `Final Answer: <GTFA>`
 - [ ] 5 distractors with the exact note; QC Justifications ready
 - [ ] `check_package.py` passes with no ERROR
