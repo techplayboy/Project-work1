@@ -1,6 +1,6 @@
 # Pulley v1 (stepped drum, three members, four ropes): task package
 
-Subdomain: Mechanical Engineering: kinematics / mechanisms · Image: `pulley_v1.png` · GTFA: -343 · Status: draft
+Subdomain: Mechanical Engineering: kinematics / mechanisms · Image: `pulley_v1.png` · GTFA: -343 · Status: **RETIRED: both models solved the 0.8 m/s version (see responses/RESULT.md)**
 
 ---
 
