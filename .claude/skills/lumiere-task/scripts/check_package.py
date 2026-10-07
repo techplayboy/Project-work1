@@ -140,8 +140,9 @@ def main():
     if d:
         wc = len(re.findall(r"\S+", d))
         msgs.append(f"{'ERROR' if wc < 200 else 'INFO '} Step 7: description {wc} words (≥200)")
-        if DESC_CLOSE not in d:
-            E(f"Step 7: missing closing paragraph starting '{DESC_CLOSE}'")
+        if DESC_CLOSE in d or re.search(r"\btask prompt\b|\bthe prompt\b", d, re.I):
+            E("Step 7: description refers to the prompt (Image Description Checker: META_COMMENTARY); "
+              "describe only the figure")
         if re.search(r"\btrap\b|\bmisread|\bdistractor|\btrick", d, re.I):
             E("Step 7: description points out the trap")
 
