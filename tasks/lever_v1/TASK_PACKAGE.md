@@ -1,6 +1,6 @@
 # Lever v1 (hydraulic circuit driving a pivoted lever): task package
 
-Subdomain: Mechanical Engineering: fluid power / mechanisms · Image: `lever_v1.png` · GTFA: 321 · Status: draft
+Subdomain: Mechanical Engineering: fluid power / mechanisms · Image: `lever_v1.png` · GTFA: 321 · Status: **tested: both models failed (184, 184)**
 
 ---
 
@@ -163,6 +163,8 @@ The description has been made explicit on these points; the topology, values and
 ## Model responses log
 | Response | Final answer | Stated reading | Reproduced? | Usable for Step 8? |
 |---|---|---|---|---|
+| Response 1 | 184 | Pilot-operated check "piloted open by the pressure line from Port B", rod end of the left cylinder to reservoir | Yes, exactly (330000000/(571812.5π) = 183.701) | **Yes: chosen** |
+| Response 2 | 184 | Same reading (calls it a "pilot-operated counterbalance check valve") | Yes, exactly | Yes |
 
 ## QC Justification: Image Description Checker, findings on the description (rebuttal / changes made)
 ```

@@ -55,3 +55,4 @@ observations at the bottom with the task that showed them.
 | 2026-10 | playbook | **They compare dimensions against pixel scale**, so draw to scale |
 | 2026-10 | pulley v1 | **Long clean traces are not traps.** Unbranched elements (ropes) are traced end to end perfectly; difficulty must come from *local* ambiguities resolved by a default (datum, pin vs pivot, dot placement, hop then dot) |
 | 2026-10 | pulley v1 | **A unique line style is a label.** The thick strap on the "ceiling" pulley gave away its carrier at a glance. Draw decisive elements in the same style as their decoys |
+| 2026-10 | lever v1 | **Pilot-line default confirmed (2/2).** Both models stated the pilot-operated check is "piloted open by the pressure line from port B" without tracing the dashed line to its dot on the drain line. Spring-pin-vs-pivot, baseline datum and envelope were all read correctly, so they no longer work as traps on their own |
